@@ -1,0 +1,6 @@
+English 101,Required,Prof. Paul
+French 101,Required,Prof. James
+Biology 101,Required,Prof. Willis
+PHP 101,Required,Prof. Greenwood
+Philosophy 101,Required,Prof. AristotleTest 101, Optional, Prof. Andrew
+Test 101, Optional, Prof. Andrew
