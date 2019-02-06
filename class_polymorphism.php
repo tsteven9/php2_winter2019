@@ -12,7 +12,7 @@ class ConcreteClass extends BaseClass
 
     public function importantFunction(BaseClass $object)
     {
-        if ($object instanceof ConcreteClass) {
+        if ($object instanceof BaseClass) {
             echo 'Polymorphism rocks!' . PHP_EOL;
         } else {
             echo 'Something went wrong!!!' . PHP_EOL;
