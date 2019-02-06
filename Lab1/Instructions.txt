@@ -1,0 +1,7 @@
+Please modify your web page by:
+
+1- Adding a template class that renders (render method) the HTML, CSS and JavaScript from your original web page,
+2- Creating a class that contains three properties (firstname, lastname and age) with getters and setters, and
+3- Adding a class that gets the information from the previous class and sends this data to the properties of the template class and calls the template class' render method,
+
+Have a lot of fun!
