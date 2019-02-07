@@ -16,30 +16,30 @@ class TemplateManager
     {
 
         $this->html = '<!DOCTYPE html>';
-        $this->html .= '<lang=\"en\">';
+        $this->html .= '<lang="en">';
         $this->html .='<head>';
         $this->html .='<meta charset="UTF-8">';
-        $this->html .='<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">';
+        $this->html .='<meta name="viewport" content="width=device-width, initial-scale=1">';
 
     // BootStrap CSS bootstrap-4.2.1-dist
-        $this->html .='<link rel=\"stylesheet\" href=\"css/bootstrap.min.css\">';
+        $this->html .='<link rel="stylesheet" href="http://localhost:63342/php2_winter2019/Lab1/StroudeErica/css/bootstrap.min.css">';
 
     // jQuery
-        $this->html .= '<script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js\"></script>';
+        $this->html .= '<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>';
 
     // BootStrap JS bootstrap-4.2.1-dist
-        $this->html .= '<script src=\"js/bootstrap.bundle.min.js\"></script>';
+        $this->html .= '<script src="http://localhost:63342/php2_winter2019/Lab1/StroudeErica/js/bootstrap.bundle.min.js"></script>';
 
     // JavaScript
-        $this->html .= '<script type=\"text/javascript\" src=\"js/myjs.js\"></script>';
+        $this->html .= '<script type="text/javascript" src="http://localhost:63342/php2_winter2019/Lab1/StroudeErica/js/myjs.js"></script>';
     // Custom CSS
-        $this->html .= '<link rel=\"stylesheet\" href=\"css/custom.css\">';
+        $this->html .= '<link rel="stylesheet" href="http://localhost:63342/php2_winter2019/Lab1/StroudeErica/css/custom.css">';
         $this->html .='</head>';
         $this->html .= '<title>First Page</title>';
         $this->html .= '</head>';
         $this->html .= '<body>';
     // Main div
-        $this->html .= '<div id=\"image\">';
+        $this->html .= '<div id="image">';
         $this->html .= '<h1>Hello World</h1>';
         $this->html .='<p>This is my <b>first</b> page for PHP Programming with MySQL II.<br>'
             . $this->data['firstName']
@@ -49,58 +49,58 @@ class TemplateManager
 
             $this->html .= 'You age ' . $this->data['age'] . ' years old!</p>';
     // Sun div
-        $this->html .= '<div id=\"sun\">';
+        $this->html .= '<div id="sun">';
 
         $this->html .='</div>';
 
         $this->html .='</div>';
-        $this->html .= '<button id=\"button\" type=\"submit\">Change it!</button>';
+        $this->html .= '<button id="button" type="submit">Change it!</button>';
 
     // Sign in form
-        $this->html .='<form id=\"signin\" class=\"form-inline\">';
-        $this->html .= '<p id=\"form\">Please sign in</p>';
-        $this->html .= '<label class=\"sr-only\" for=\"inlineFormInputName2\">Name</label>';
-        $this->html .= '<input type=\"text\" class=\"form-control mb-2 mr-sm-2" id=\"inlineFormInputName2\" placeholder=\"Jane Doe\">';
+        $this->html .='<form id="signin" class="form-inline">';
+        $this->html .= '<p id="form">Please sign in</p>';
+        $this->html .= '<label class="sr-only" for="inlineFormInputName2">Name</label>';
+        $this->html .= '<input type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" placeholder="Jane Doe">';
 
-        $this->html .= '<label class=\"sr-only\" for=\"inlineFormInputGroupUsername2\">Username</label>';
-        $this->html .= '<div class=\"input-group mb-2 mr-sm-2\">';
-        $this->html .= '<div class=\"input-group-prepend\">';
-        $this->html .= '<div class="\input-group-text\">@</div>';
+        $this->html .= '<label class="sr-only" for="inlineFormInputGroupUsername2">Username</label>';
+        $this->html .= '<div class="input-group mb-2 mr-sm-2">';
+        $this->html .= '<div class="input-group-prepend">';
+        $this->html .= '<div class="\input-group-text">@</div>';
         $this->html .= '</div>';
-        $this->html .= '<input type=\"text\" class=\"form-control\" id=\"inlineFormInputGroupUsername2\" placeholder=\"Username\">';
+        $this->html .= '<input type="text" class="form-control" id="inlineFormInputGroupUsername2" placeholder="Username">';
         $this->html .='</div>';
 
-        $this->html .= '<div class=\"form-check mb-2 mr-sm-2\">';
-        $this->html .= '<input class=\"form-check-input\" type=\"checkbox\" id=\"inlineFormCheck\">';
-        $this->html .='<label class=\"form-check-label\" for=\"inlineFormCheck\">';
+        $this->html .= '<div class="form-check mb-2 mr-sm-2">';
+        $this->html .= '<input class="form-check-input" type="checkbox" id="inlineFormCheck">';
+        $this->html .='<label class="form-check-label" for="inlineFormCheck">';
         $this->html .= 'Remember me';
         $this->html .= '</label>';
         $this->html .='</div>';
 
-        $this->html .='<button type=\"submit\" class=\"btn btn-primary mb-2\">Submit</button>';
+        $this->html .='<button type="submit" class="btn btn-primary mb-2">Submit</button>';
         $this->html .= '</form>';
 
-        $this->html .= '<footer>&copy; 2019 <p id=\"sources\">Sources: commons.wikimedia.org/wiki/File:Kanchenjunga_India.jpg</p></footer>';
+        $this->html .= '<footer>&copy; 2019 <p id="sources">Sources: commons.wikimedia.org/wiki/File:Kanchenjunga_India.jpg</p></footer>';
 
 
     // JavaScript
         $this->html .= '<script>';
-        $this->html .= '$("\#button\").click(function() {';
+        $this->html .= '$("\#button").click(function() {';
 
-        $this->html .= 'document.body.style.backgroundColor = "\#ED6353\";';
+        $this->html .= 'document.body.style.backgroundColor = "\#ED6353";';
 
-        $this->html .= 'document.getElementById(\"image\").style.backgroundImage = \"url(\'images/kanchenjunga.jpg\')\";';
-        $this->html .='document.getElementById(\"image\").style.backgroundRepeat = \"no-repeat\";';
-        $this->html .= 'document.getElementById(\"image\").style.backgroundPosition = \"bottom\";';
-        $this->html .= 'document.getElementById(\"image\").style.backgroundSize = \"cover\";';
+        $this->html .= 'document.getElementById("image").style.backgroundImage = "url(\'images/kanchenjunga.jpg\')";';
+        $this->html .='document.getElementById("image").style.backgroundRepeat = "no-repeat";';
+        $this->html .= 'document.getElementById("image").style.backgroundPosition = "bottom";';
+        $this->html .= 'document.getElementById("image").style.backgroundSize = "cover";';
 
-        $this->html .= 'document.getElementById(\"sun\").style.visibility = \"visible\";';
+        $this->html .= 'document.getElementById("sun").style.visibility = "visible";';
 
 
-        $this->html .= 'document.getElementById(\"button\").style.display = \"none\";';
-        $this->html .= 'document.getElementById(\"signin\").style.visibility = \"visibl\e";';
+        $this->html .= 'document.getElementById("button").style.display = "none";';
+        $this->html .= 'document.getElementById("signin").style.visibility = "visibl\e";';
 
-        $this->html .= 'document.getElementById(\"sources\").style.visibility = \"visible\";';
+        $this->html .= 'document.getElementById("sources").style.visibility = "visible";';
 
         $this->html .= '});';
 

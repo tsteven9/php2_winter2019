@@ -6,18 +6,18 @@
     echo '<meta name="viewport" content="width=device-width, initial-scale=1">';
 
     // BootStrap CSS bootstrap-4.2.1-dist
-    echo '<link rel="stylesheet" href="css/bootstrap.min.css">';
+    echo '<link rel="stylesheet" href="php2_winter2019/Lab1/StroudeErica/css/bootstrap.min.css">';
 
     // jQuery
     echo '<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>';
 
     // BootStrap JS bootstrap-4.2.1-dist
-    echo '<script src="js/bootstrap.bundle.min.js"></script>';
+    echo '<script src="php2_winter2019/Lab1/StroudeErica/js/bootstrap.bundle.min.js"></script>';
 
     // JavaScript
-    echo '<script type="text/javascript" src="js/myjs.js"></script>';
+    echo '<script type="text/javascript" src="php2_winter2019/Lab1/StroudeErica/js/myjs.js"></script>';
     // Custom CSS
-    echo '<link rel="stylesheet" href="css/custom.css">';
+    echo '<link rel="stylesheet" href="php2_winter2019/Lab1/StroudeErica/css/custom.css">';
     echo '</head>';
     echo '<title>First Page</title>';
     echo '</head>';

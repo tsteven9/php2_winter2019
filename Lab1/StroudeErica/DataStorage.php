@@ -20,7 +20,7 @@ class DataStorage
         }
 
         if ($link === NULL) {
-            $link = mysqli_connect('localhost:3307', 'max', 'test', 'users');
+            $link = mysqli_connect('localhost:3307', 'root', '', 'users');
         }
         return $link;
     }
