@@ -13,3 +13,4 @@ require 'IndexController.php'; // need autoloading
 $app = new IndexController();
 
 $app->indexAction();
+

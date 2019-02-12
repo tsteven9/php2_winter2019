@@ -25,11 +25,18 @@ class IndexController
         $this->data['age'] = $dataStorage->getAge();
 
         $this->viewManager = new TemplateManager();
+
         $this->viewManager->setData($this->data);
+
+
+
+
+
+
         $this->viewManager->loadTemplate();
 
-        $this->viewManager->render();
 
+        $this->viewManager->render();
 
     }
 

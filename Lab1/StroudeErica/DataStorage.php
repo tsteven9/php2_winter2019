@@ -11,7 +11,8 @@ class DataStorage
     protected $firstName;
     protected $lastName;
     protected $age;
-    public $myArray =[];
+    public $myArray = [];
+
 
     function getConnection()
     {
@@ -20,7 +21,7 @@ class DataStorage
         }
 
         if ($link === NULL) {
-            $link = mysqli_connect('localhost:3307', 'root', '', 'users');
+            $link = mysqli_connect('localhost:3307', 'root', '', 'ericadb');
         }
         return $link;
     }
@@ -41,12 +42,12 @@ class DataStorage
         return "'";
     }
 
-// SELECT `id`,`firstname`,`lastname` FROM `customers` WHERE x=y
+// SELECT `id`,`firstname`,`lastname`, `age` FROM `users` WHERE x=y
 // $where = [key = column name, value = data]
 // $andOr = AND | OR
     function getCustomers(array $where = array(), $andOr = 'AND')
     {
-        $query = 'SELECT `id`,`firstname`,`lastname` FROM `users`';
+        $query = 'SELECT `id`,`firstname`,`lastname`, `age` FROM `users`';
         if ($where) {
             $query .= ' WHERE ';
             foreach ($where as $column => $value) {
@@ -58,7 +59,12 @@ class DataStorage
         $result = mysqli_query($link, $query);
         return mysqli_fetch_all($result);
 
+
+
         $myArray = getCustomers(array('id' => '1'));
+
+
+
 
         closeConnection();
 

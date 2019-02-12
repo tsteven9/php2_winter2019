@@ -41,13 +41,13 @@ class TemplateManager
     // Main div
         $this->html .= '<div id="image">';
         $this->html .= '<h1>Hello World</h1>';
-        $this->html .='<p>This is my <b>first</b> page for PHP Programming with MySQL II.<br>'
-            . $this->data['firstName']
-            . ''
-            . $this->data['lastName']
-            . '<br>';
+        $this->html .='<p>Welcome to our <b>first</b> page for PHP Programming with MySQL II.</p>';
+            //. $this->data['firstName']
+            //. ''
+           //. $this->data['lastName']
+            //. '<br></p>';
 
-            $this->html .= 'You age ' . $this->data['age'] . ' years old!</p>';
+           $this->html .= 'Your name is ' . $this->data['firstName'] . ' ' . $this->data['lastName'] . '. ' . 'You are ' . $this->data['age'] . ' years old!</p><br>';
     // Sun div
         $this->html .= '<div id="sun">';
 
@@ -58,9 +58,9 @@ class TemplateManager
 
     // Sign in form
         $this->html .='<form id="signin" class="form-inline">';
-        $this->html .= '<p id="form">Please sign in</p>';
+        $this->html .= '<p id="form">If the information above is correct, please sign in</p>';
         $this->html .= '<label class="sr-only" for="inlineFormInputName2">Name</label>';
-        $this->html .= '<input type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" placeholder="Jane Doe">';
+        $this->html .= '<input type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" placeholder="Jane Smith">';
 
         $this->html .= '<label class="sr-only" for="inlineFormInputGroupUsername2">Username</label>';
         $this->html .= '<div class="input-group mb-2 mr-sm-2">';
@@ -105,6 +105,7 @@ class TemplateManager
         $this->html .= '});';
 
 
+        //var_dump($this->data);
 
         $this->html .= '</script>';
         $this->html .='</body>';
