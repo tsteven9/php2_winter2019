@@ -14,6 +14,10 @@ class dataStorage
     protected $link;
 
 
+
+
+
+
     public function getConnection()
     {
         if (!isset($link)) {
@@ -37,28 +41,44 @@ class dataStorage
         }
     }
 
-    public function getCustomers(array $where = array(), $andOr = 'AND')
+    public function getQuote()
     {
-        $query = 'SELECT `id`,`firstname`,`lastname` FROM `users`';
+        return "'";
+    }
+
+  /*  public function getUsers(array $where = array(), $andOr = 'AND')
+    {
+        $query = 'SELECT `id`,`firstname`,`lastname`,`age` FROM `users`';
         if ($where) {
             $query .= ' WHERE ';
             foreach ($where as $column => $value) {
-                $query .= $column . ' = ' . getQuote() . $value . getQuote() . ' ' . $andOr;
+                $query .= $column . ' = ' . $this->getQuote() . $value . $this->getQuote() . ' ' . $andOr;
             }
             $query = substr($query, 0, -(strlen($andOr)));
         }
-        $link = getConnection();
-        $result = mysqli_query($link, $query);
+        $this->link = $this->getConnection();
+        $result = mysqli_query($this->link, $query);
         return mysqli_fetch_all($result);
+
+    }*/
+    public function getUsers()
+    {
+        $query = 'SELECT `id`,`firstname`,`lastname`,`age` FROM `users`';
+        $this->link = $this->getConnection();
+        $result = mysqli_query($this->link, $query);
+        $row = mysqli_fetch_assoc($result);
+        return $row;
     }
 
-    $myArray = getCustomers(array('id' => '3'));
+
 
     /**
      * @return mixed
      */
     public function getFirstName()
     {
+        $row = $this->getUsers();
+        $this->firstName = $row ['firstname'];
         return $this->firstName;
     }
 
@@ -75,7 +95,8 @@ class dataStorage
      */
     public function getLastName()
     {
-        return $this->lastName;
+        $row = $this->getUsers();
+        return $this->lasttName = $row['lastname'];
     }
 
     /**
@@ -91,8 +112,10 @@ class dataStorage
      */
     public function getAge()
     {
-        return $this->age;
+        $row = $this->getUsers();
+        return $this->age = $row['age'];
     }
+
 
     /**
      * @param mixed $age
