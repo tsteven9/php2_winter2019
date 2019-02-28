@@ -17,7 +17,7 @@ function getConnection($getLink = TRUE)
     
     if ($link === NULL) {
         
-        $link = mysqli_connect('localhost:3306', 'loginuser', 'testpass', 'andrew_session_app');
+        $link = mysqli_connect('localhost:3307', 'loginuser', 'testpass', 'andrew_session_app');
         
     } elseif ($getLink === FALSE) {
         
