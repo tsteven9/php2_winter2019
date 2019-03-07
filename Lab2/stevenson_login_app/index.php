@@ -175,7 +175,7 @@ if ($postLoginForm === TRUE) {
     switch ($errorMsg) {
         
         case 0:
-            $userMsg = 'Welcome! </br>Please Sign In';
+            $userMsg = 'Welcome! </br>Please Log In';
             break;
         case 1:
             $userMsg = 'Wrong credentials entered.  <a href="index.php">Please try again</a>.';
@@ -219,18 +219,18 @@ if ($postLoginForm === TRUE) {
     	$htmlOut .= "\t\t\t<h2 class=\"form-signin-heading\">" . $userMsg . "</h2>\n";
     	$htmlOut .= "\t\t\t<div class=\"form-group\">\n";
     	//$htmlOut .= "\t\t\t\t<label for=\"inputUsername\" class=\"control-label\">Username:</label>\n";
-        $htmlOut .= "\t\t\t\t<img src=\"https://img.icons8.com/ios/40/000000/administrator-male.png\">\n";
+        $htmlOut .= "\t\t\t\t<img src=\"https://img.icons8.com/color/48/000000/gender-neutral-user.png\">\n";
     	$htmlOut .= "\t\t\t\t<input class=\"form-control\" id=\"inputUsername\" name=\"username\" placeholder=\"Enter your username here\" type=\"text\" pattern=\"^[a-zA-Z]+$\" maxlength=\"40\" data-error=\"Invalid character.\" required autofocus>\n";
     	$htmlOut .= "\t\t\t\t<div class=\"help-block with-errors\"></div>\n";
     	$htmlOut .= "\t\t\t</div>\n";
     	$htmlOut .= "\t\t\t<div class=\"form-group\">\n";
     	//$htmlOut .= "\t\t\t\t<label for=\"inputPassword\" class=\"control-label\">Password:</label>\n";
-        $htmlOut .= "\t\t\t\t<img src=\"https://img.icons8.com/windows/40/000000/lock-2.png\">\n";
+        $htmlOut .= "\t\t\t\t<img src=\"https://img.icons8.com/color/48/000000/key-security.png\">\n";
     	$htmlOut .= "\t\t\t\t<input class=\"form-control\" id=\"inputPassword\" name=\"password\" placeholder=\"Enter you password here\" type=\"password\" pattern=\"^[_a-zA-Z0-9]+$\" maxlength=\"40\" data-error=\"Invalid character.\" required>\n";
     	$htmlOut .= "\t\t\t\t<div class=\"help-block with-errors\"></div>\n";
     	$htmlOut .= "\t\t\t</div>\n";
     	$htmlOut .= "\t\t\t<div class=\"form-group\">\n";
-    	$htmlOut .= "\t\t\t\t<button class=\"btn btn-lg btn-primary btn-block\" name=\"submit\" type=\"submit\" value=\"1\">Submit</button>\n";
+    	$htmlOut .= "\t\t\t\t<button class=\"btn btn-lg btn-primary btn-block\" name=\"submit\" type=\"submit\" value=\"1\">Log In</button>\n";
     	$htmlOut .= "\t\t\t</div>\n";
     	$htmlOut .= "\t\t</form>\n";
     	$htmlOut .= "\t</div> <!-- /container -->\n\n";
