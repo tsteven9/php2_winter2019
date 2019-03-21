@@ -8,10 +8,10 @@
  *
  */
 
-require 'AppModel.php';
-require 'AppView.php';
-require 'AppController.php';
-require 'AppSessionManager.php';
+require 'Model/AppModel.php';
+require 'View/AppView.php';
+require 'Controller/AppController.php';
+require 'Library/AppSessionManager.php';
 
 $appModel = new AppModel();
 $appSessionManager = new AppSessionManager($appModel);
