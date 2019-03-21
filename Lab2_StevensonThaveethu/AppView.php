@@ -1,34 +1,45 @@
 <?php
 /**
  *
+ * Lab 2
+ * 
  * Author: Stevenson Thaveethu
  * Date: March 6, 2019
  *
- * Description: Graphical representation of the app's data.
+ * Description: Presenting the data to the user.
+ * 
+ * This is the TEMPLATEMANAGER
  *
  */
  
-
 class AppView
 {
     
     protected $htmlOut;
+
     protected $data = array();
-    
-    
+
+
+    public function __construct(array $data)
+    {
+
+        $this->data = $data;
+
+    }
+
     public function loadTemplate()
     {
         
-        // <====== Prepare view output. ======>
+        // Prepare view output.
         
-        if ($this->data['postLoginForm'] === true)
+        if ($this->data['postLoginForm'] === TRUE)
         {
             
             switch ($this->data['errorMessage'])
             {
                 
                 case 0:
-                    $this->data['userMessage'] = 'Please sign in.';
+                    $this->data['userMessage'] = 'Log in to website.';
                     break;
                 
                 case 1:
@@ -36,11 +47,11 @@ class AppView
                     break;
                 
                 case 2:
-                    $this->data['userMessage'] = 'You are logged out!  <a href="index.php">You can login again</a>.';
+                    $this->data['userMessage'] = 'You have been successfully logged out!  <a href="index.php">You can log in again</a>.';
                     break;
                 
                 case 3:
-                    $this->data['userMessage'] = 'Invalid session. <a href="index.php">Please login again</a>.';
+                    $this->data['userMessage'] = 'Invalid session. <a href="index.php">Please log in again</a>.';
                     break;
                     
             }
@@ -53,7 +64,7 @@ class AppView
             $this->htmlOut .= "\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n";
             $this->htmlOut .= "\t<!-- The above 3 meta tags *must* come first in the head; 
                                 any other head content must come *after* these tags -->\n\n";
-            $this->htmlOut .= "\t<title>Login App</title>\n\n";
+            $this->htmlOut .= "\t<title>Login on website</title>\n\n";
             $this->htmlOut .= "\t<!-- Bootstrap -->\n";
             $this->htmlOut .= "\t<link href=\"css/bootstrap.min.css\" rel=\"stylesheet\">\n\n";
             $this->htmlOut .= "\t<!-- Custom styles for this template -->\n";
@@ -145,7 +156,7 @@ class AppView
             $this->htmlOut .= "\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n";
             $this->htmlOut .= "\t<!-- The above 3 meta tags *must* come first in the head; 
                                 any other head content must come *after* these tags -->\n\n";
-            $this->htmlOut .= "\t<title>Login App</title>\n\n";
+            $this->htmlOut .= "\t<title>Login on website</title>\n\n";
             $this->htmlOut .= "\t<!-- Bootstrap -->\n";
             $this->htmlOut .= "\t<link href=\"css/bootstrap.min.css\" rel=\"stylesheet\">\n\n";
             $this->htmlOut .= "\t<!-- Custom styles for this template -->\n";
@@ -188,7 +199,7 @@ class AppView
             
             $this->htmlOut .= "\t\t\t<form action=\"index.php\" method=\"post\">\n";
             $this->htmlOut .= "\t\t\t\t<button class=\"btn btn-lg btn-primary btn-block\" 
-                                name=\"logout\" type=\"submit\" value=\"2\">Logout</button>\n";
+                                name=\"logout\" type=\"submit\" value=\"2\">Log out</button>\n";
             $this->htmlOut .= "\t\t\t</form>\n";
             $this->htmlOut .= "\t\t</div> <!-- /jumbotron -->\n";
             $this->htmlOut .= "\t</div> <!-- /container -->\n\n";
@@ -212,18 +223,4 @@ class AppView
         
     }
     
-    public function getData()
-    {
-        
-        return $this->data;
-        
-    }
-    
-    public function setData($data)
-    {
-        
-        $this->data = $data;
-        return $this;
-        
-    }
 }

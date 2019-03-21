@@ -1,14 +1,21 @@
 <?php
 /**
- *
+ * 
+ * Lab 2
+ * 
  * Author: Stevenson Thaveethu
  * Date: March 6, 2019
  *
  */
 
-
+require 'AppModel.php';
+require 'AppView.php';
 require 'AppController.php';
+require 'AppSessionManager.php';
 
-$app = new AppController();
+$appModel = new AppModel();
+$appSessionManager = new AppSessionManager($appModel);
 
-$app->indexAction();
+$app = new AppController($appModel, $appSessionManager);
+
+$app->webActions();

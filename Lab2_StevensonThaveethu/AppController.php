@@ -1,46 +1,82 @@
 <?php
 /**
  *
+ * Lab 2
+ * 
  * Author: Stevenson Thaveethu
  * Date: March 6, 2019
  * 
- * Description: Handles the user input, and transfers the information to the model.
+ * Description: Deals with the user requests for resources from the server.
+ * 
+ * This is the INDEX CONTROLLER
  *
  */
-
-
-require 'AppModel.php';
-require 'AppView.php';
-
 
 class AppController
 {
     
+    protected $appModel;
+    
+    protected $appView;
+
+    protected $appSessionManager;
+
     protected $data = array();
-    protected $viewManager;
-	
-    public function indexAction()
+
+
+    public function __construct(AppModel $appModel, AppSessionManager $appSessionManager)
+    {
+
+        $this->appModel = $appModel;
+        $this->appSessionManager = $appSessionManager;
+
+    }
+    
+
+    public function getData()
+    {
+
+        return $this->data;
+
+    }
+
+
+    public function setData($userMessage,$errorMessage,$postLoginForm)
+    {
+
+        $this->data['userMessage'] = $userMessage;
+
+        $this->data['errorMessage'] = $errorMessage;
+
+        $this->data['postLoginForm'] = $postLoginForm;
+
+        return $this->data;
+
+    }
+    
+
+    public function webActions()
     {
         
-        // <====== Output buffer. ======> 
+        //  Output buffer. 
         
         ob_start();
         
-        // <====== Flags. ======>
+        //  Flags.
         
         $loginCheck = FALSE;
         
         $validSession = FALSE;
-        
+
         $postLoginForm = TRUE;
         
-        // <====== Initialize app business and frontend messages. ======>
+        //  Initialize app business and frontend messages.
         
         $errorMessage = 0;
         
         $userMessage = '';
         
-        // <====== Check if user is already logged in. ======> 
+        //  Check if user is already logged in. 
         
         if (isset($_COOKIE['loggedin']))
         {
@@ -48,11 +84,11 @@ class AppController
             if ($validSession === FALSE)
             {
                 
-                $validSession = session_secure_init();
+                $validSession = $this->appSessionManager->session_secure_init();
                 
             }
             
-            // <====== Check for cookie tampering. ======>
+            //  Check for cookie tampering.
             
             if ($validSession === TRUE && isset($_SESSION['LOGGEDIN']))
             {
@@ -63,7 +99,7 @@ class AppController
             else
             {
                 
-                $validSession = session_obliterate();
+                $validSession = $this->appSessionManager->session_obliterate();
                 
                 $errorMessage = 3;
 				
@@ -71,14 +107,14 @@ class AppController
                 
             }
             
-            // <====== Cookie login check done. ======>
+            //  Cookie login check done.
             
             $loginCheck = TRUE;
             
         }
         
         
-        // <====== Login verification. ======>
+        //  Login verification.
         
         if (isset($_POST['submit']) && $_POST['submit'] == 1 
 									&& !empty($_POST['username']) 
@@ -88,7 +124,7 @@ class AppController
             if ($validSession === FALSE)
             {
                 
-                $validSession = session_secure_init();
+                $validSession = $this->appSessionManager->session_secure_init();
                 
             }
             
@@ -106,25 +142,34 @@ class AppController
             if (strlen($username) > 40)
             {
                 
-                $password = substr($password, 0, 39);
+                $username = substr($username, 0, 39);
                 
             }
             
+            $password = preg_replace("/[^_a-zA-Z0-9]+/", "", $password);
             
-            // <====== Check credentials. ======>
+            if (strlen($password) > 40)
+            {
             
-            if (checkLogin($username, $password))
+                $password = substr($password, 0, 39);
+            
+            }
+            
+            
+            //  Check credentials.
+            
+            if ($this->appSessionManager->checkLogin($username, $password))
             {
                 
                 if ($validSession === TRUE)
                 {
                     
-                    // <====== Check for cookie tampering. ======>
+                    //  Check for cookie tampering.
                     
                     if (isset($_SESSION['LOGGEDIN']))
                     {
                         
-                        $validSession = session_obliterate();
+                        $validSession = $this->appSessionManager->session_obliterate();
                         
                         $errorMessage = 3;
                         
@@ -148,7 +193,7 @@ class AppController
                 else
                 {
                     
-                    $validSession = session_obliterate();
+                    $validSession = $this->appSessionManager->session_obliterate();
                     
                     $errorMessage = 3;
                     
@@ -160,7 +205,7 @@ class AppController
             else
             {
                 
-                $validSession = session_obliterate();
+                $validSession = $this->appSessionManager->session_obliterate();
                 
                 $errorMessage = 1;
                 
@@ -168,13 +213,13 @@ class AppController
                 
             }
             
-            // <====== Username-password login check done. ======>
+            //  Username-password login check done.
             
             $loginCheck = TRUE;
             
         }
         
-        // <====== Intercept logout POST. ======>
+        //  Intercept logout POST.
         
         if (isset($_POST['logout']))
         {
@@ -186,7 +231,7 @@ class AppController
                 
             }
             
-            $validSession = session_obliterate();
+            $validSession = $this->appSessionManager->session_obliterate();
             
             $errorMessage = 2;
             
@@ -194,7 +239,7 @@ class AppController
             
         }
         
-        // <====== Intercept invalid sessions and redirect to login page. ======>
+        //  Intercept invalid sessions and redirect to login page.
         
         if ($loginCheck === TRUE && $validSession === FALSE && $errorMessage === 0)
         {
@@ -202,39 +247,31 @@ class AppController
             if ($validSession === FALSE)
             {
                 
-                $validSession = session_secure_init();
-                $validSession = session_obliterate();
+                $validSession = $this->appSessionManager->session_secure_init();
+                
+                $validSession = $this->appSessionManager->session_obliterate();
                 
             }
             
             $errorMessage  = 3;
+            
             $postLoginForm = TRUE;
             
         }
         
         
-        $this->data['userMessage'] = $userMessage;
-        
-        $this->data['errorMessage'] = $errorMessage;
-        
-        $this->data['postLoginForm'] = $postLoginForm;
-        
-        
-        $this->viewManager = new AppView();
-        
-        $this->viewManager->setData($this->data);
-        
-        $this->viewManager->loadTemplate();
-        
-        $this->viewManager->render();
-        
-        
+        $this->data= $this->setData($userMessage,$errorMessage,$postLoginForm);
+
+        $this->appView= new AppView($this->data);
+
+        $this->appView->loadTemplate();
+
+        $this->appView->render();
+
         ob_end_flush();
-        
-        
+
         flush();
-        
-        
+
         exit;
         
     }
