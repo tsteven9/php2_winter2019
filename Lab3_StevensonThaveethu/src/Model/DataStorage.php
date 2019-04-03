@@ -25,7 +25,7 @@ class DataStorage
         if ($link === NULL)
         {
 
-            $link = mysqli_connect('localhost:3306', //Host
+            $link = mysqli_connect('localhost:3307', //Host
                                    'loginuser', //Username
                                    'testpass', //Password
                                    'andrew_session_app'); // Database
