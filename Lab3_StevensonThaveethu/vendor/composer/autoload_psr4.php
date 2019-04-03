@@ -6,6 +6,5 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'Config\\Route\\' => array($baseDir . '/config'),
-    'App\\' => array($baseDir . '/app'),
+    'Application\\' => array($baseDir . '/src'),
 );

@@ -11,7 +11,7 @@
  *
  */
  
-namespace App;
+namespace Application\View;
 
 class TemplateManager
 {

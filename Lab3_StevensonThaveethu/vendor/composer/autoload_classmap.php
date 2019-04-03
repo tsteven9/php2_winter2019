@@ -6,6 +6,4 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'App\\IndexController' => $baseDir . '/app/IndexController.php',
-    'App\\TemplateManager' => $baseDir . '/app/TemplateManager.php',
 );

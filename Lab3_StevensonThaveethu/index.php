@@ -1,13 +1,21 @@
 <?php
+/**
+ *
+ * Lab 3
+ * 
+ * Author: Stevenson Thaveethu
+ * Date: March 25, 2019
+ * 
+ */
+
 
 // Start output buffering.
 ob_start();
 
-// need autoloading
-require __DIR__ . '/vendor/autoload.php';
+// Autoloading
+include 'vendor/autoload.php';
 
-$app = new App\IndexController();
-
-$app->indexAction();
+// Routing
+$app = new Application\Router();
 
 ob_end_flush();

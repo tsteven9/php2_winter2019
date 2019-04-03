@@ -11,7 +11,10 @@
  *
  */
 
-namespace App;
+namespace Application\Controller;
+
+use Application\Model\DataStorage;
+use Application\View\TemplateManager;
 
 class IndexController
 {
